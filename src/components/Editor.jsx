@@ -1,5 +1,5 @@
 import CodeMirror from "@uiw/react-codemirror";
-import { material } from "@uiw/codemirror-theme-material";
+import { dracula } from "@uiw/codemirror-theme-dracula";
 import { javascript } from "@codemirror/lang-javascript";
 import { html } from "@codemirror/lang-html";
 import { less } from "@codemirror/lang-less";
@@ -8,6 +8,7 @@ const Editor = (props) => {
   const { language, displayName, value, onChange } = props;
 
   const handleChange = (editor, data, value) => {
+    console.log(123);
     onChange(value);
   };
 
@@ -18,18 +19,17 @@ const Editor = (props) => {
         <button>OC</button>
       </div>
       <CodeMirror
-        value="console.log('hello world!');"
+        value={value}
         className='code-mirror-wrapper'
-        height='200px'
         extensions={[eval(language)()]}
-        theme={material}
-        basicSetup={{
-          foldGutter: true,
-          dropCursor: false,
-          allowMultipleSelections: false,
-          indentOnInput: false,
+        theme={dracula}
+        options={{
+          lineWrapping: true,
+          lint: true,
+          lineNumbers: true,
         }}
-        onBeforeInput={handleChange}
+        onChange={handleChange}
+        height='100%'
       />
     </div>
   );

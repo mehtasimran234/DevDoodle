@@ -1,13 +1,23 @@
 import { useState } from "react";
 import Editor from "./Editor";
+import Header from "./Header";
 
 function App() {
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
 
+  const srcDoc = `
+    <html>
+      <body>${html}</body>
+      <style>${css}</style>
+      <script>${js}</script>
+    </html>
+  `;
+
   return (
     <>
+      <Header />
       <div className='section section-top'>
         <Editor
           language='html'
@@ -30,11 +40,12 @@ function App() {
       </div>
       <div className='section'>
         <iframe
+          srcDoc={srcDoc}
           title='output'
           sandbox='allow-scripts'
           width='100%'
           height='100%'
-          color='blue'
+          frameBorder='0'
         />
       </div>
     </>

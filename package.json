@@ -13,7 +13,9 @@
     "@codemirror/lang-html": "^6.4.6",
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/lang-less": "^6.0.1",
-    "@uiw/codemirror-theme-material": "^4.21.13",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@uiw/codemirror-theme-dracula": "^4.21.13",
     "@uiw/react-codemirror": "^4.21.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

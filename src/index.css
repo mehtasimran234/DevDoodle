@@ -7,7 +7,7 @@ body {
 }
 
 .section {
-  height: 50vh;
+  height: 48vh;
   display: flex;
 }
 
@@ -31,8 +31,21 @@ body {
 .code-mirror-wrapper {
   flex-grow: 1;
   overflow: hidden;
+  height: 100%;
 }
 
-CodeMirror {
-  height: 100% !important;
+.title {
+  color: #ffffff;
+}
+
+nav {
+  background-color: hsl(225, 6%, 25%);
+  display: flex;
+  justify-content: left;
+}
+
+.logo {
+  color: #ffffff;
+  height: 25px;
+  padding: 20px 12px;
 }
