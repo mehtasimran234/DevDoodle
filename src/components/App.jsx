@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Editor from "./Editor";
 import Header from "./Header";
 
 function App() {
-  const [html, setHtml] = useState("");
+  const [html, setHtml] = useState("<h1>Hello World</h1>");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
+  let srcDoc;
 
-  const srcDoc = `
-    <html>
-      <body>${html}</body>
-      <style>${css}</style>
-      <script>${js}</script>
-    </html>
-  `;
+  useEffect(() => {
+    srcDoc = `
+      <html>
+        <body>${html}</body>
+        <style>${css}</style>
+        <script>${js}</script>
+      </html>
+      `;
+  }, [html, css, js]);
 
   return (
     <>
@@ -24,18 +27,21 @@ function App() {
           displayName='HTML'
           value={html}
           onChange={setHtml}
+          color='#E44D27'
         />
         <Editor
-          language='less'
+          language='css'
           displayName='CSS'
           value={css}
           onChange={setCss}
+          color='#1F8FE7'
         />
         <Editor
           language='javascript'
           displayName='JS'
           value={js}
           onChange={setJs}
+          color='#FFFF00'
         />
       </div>
       <div className='section'>
@@ -45,7 +51,6 @@ function App() {
           sandbox='allow-scripts'
           width='100%'
           height='100%'
-          frameBorder='0'
         />
       </div>
     </>
