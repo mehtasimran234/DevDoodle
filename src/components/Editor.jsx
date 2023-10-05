@@ -29,7 +29,7 @@ const Editor = (props) => {
   };
 
   return (
-    <div className='editor-container'>
+    <div className={`editor-container ${open ? "" : "collapsed"}`}>
       <div className='editor-title'>
         {getIconFromLanguage(language, color)}
         {displayName}
@@ -62,14 +62,15 @@ const Editor = (props) => {
         className='code-mirror-wrapper'
         extensions={[eval(language)()]}
         theme={githubDark}
-        options={{
+        onChange={handleChange}
+        height='100%'
+        basicSetup={{
+          allowMultipleSelections: false,
+          crosshairCursor: false,
           lineWrapping: true,
           lint: true,
           lineNumbers: true,
         }}
-        onChange={handleChange}
-        height='100%'
-        basicSetup={{ crosshairCursor: false }}
       />
     </div>
   );

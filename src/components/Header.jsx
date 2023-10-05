@@ -1,10 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { FaPen } from "react-icons/fa";
 
 const Header = () => {
   return (
     <nav>
-      <FontAwesomeIcon icon={faPen} className='logo' />
+      <FaPen className='logo' />
       <h1 className='title'>DevDoodle</h1>
     </nav>
   );
