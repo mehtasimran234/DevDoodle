@@ -60,7 +60,7 @@ const Editor = (props) => {
       <CodeMirror
         value={value}
         className='code-mirror-wrapper'
-        extensions={[eval(language)({ jsx: true })]}
+        extensions={[eval(language)()]}
         theme={githubDark}
         options={{
           lineWrapping: true,
@@ -69,6 +69,7 @@ const Editor = (props) => {
         }}
         onChange={handleChange}
         height='100%'
+        basicSetup={{ crosshairCursor: false }}
       />
     </div>
   );

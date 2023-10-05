@@ -6,16 +6,18 @@ function App() {
   const [html, setHtml] = useState("<h1>Hello World</h1>");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
-  let srcDoc;
+  const [srcDoc, setSrcDoc] = useState("");
 
   useEffect(() => {
-    srcDoc = `
+    setSrcDoc(
+      `
       <html>
         <body>${html}</body>
         <style>${css}</style>
         <script>${js}</script>
       </html>
-      `;
+      `
+    );
   }, [html, css, js]);
 
   return (
