@@ -8,6 +8,12 @@ import { AiOutlineFullscreenExit, AiOutlineFullscreen } from "react-icons/ai";
 import { SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 import { FiCopy } from "react-icons/fi";
 
+const LANG_CONFIG_MAP = {
+  javascript: [javascript({ jsx: true })],
+  html: [html({})],
+  css: [css({})],
+};
+
 const Editor = (props) => {
   const { language, displayName, value, onChange, color } = props;
   const [open, setOpen] = useState(true);
@@ -60,7 +66,7 @@ const Editor = (props) => {
       <CodeMirror
         value={value}
         className='code-mirror-wrapper'
-        extensions={[eval(language)()]}
+        extensions={LANG_CONFIG_MAP[language]}
         theme={githubDark}
         onChange={handleChange}
         height='100%'
